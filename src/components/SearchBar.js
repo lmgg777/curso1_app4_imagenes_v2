@@ -1,12 +1,12 @@
 import React from "react";
-import Clock from "./Clock";
 
 class SearchBar extends React.Component {
   state = { term: "" };
 
   onFormSubmit = event => {
-    event.preventDefault(); //previene el comportamiento default del form (refresh al presionar enter)
+    event.preventDefault();
     this.props.submited(this.state.term);
+    console.log(this.state.term);
   };
 
   render() {
@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
       <div className="ui segment">
         <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
-            <label>Image search</label>
+            <label>Image Search</label>
             <input
               type="text"
               value={this.state.term}
@@ -22,7 +22,6 @@ class SearchBar extends React.Component {
             />
           </div>
         </form>
-        <Clock />
       </div>
     );
   }
